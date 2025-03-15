@@ -1,0 +1,40 @@
+/* Body*/
+
+html body, body.custom-theme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dbdbdb !important;
+  }
+
+.main{
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.main .form-label{
+    font-size: 18px;
+    color: rgb(0, 0, 0) !important;
+}
+
+
+.main input{
+    background-color: #bfbfc250;
+    text-align: center;
+}
+
+.example{
+    color: rgba(0, 0, 0, 0.651);
+}
+
+
+.text-alert{
+    color: black;
+    font-size: 15px;
+}
+
+
