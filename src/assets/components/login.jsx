@@ -40,7 +40,7 @@ const LoginForm = () => {
       if (alert.show) {
         const timer = setTimeout(() => {
           setAlert({ show: false, type: '', message: '' });
-        }, 5000);
+        }, 300000)
         
         return () => clearTimeout(timer);
       }
@@ -171,30 +171,28 @@ const LoginForm = () => {
       
       return (
 
-          <div className={`alert-con alert ${bgColors[alert.type]} d-flex flex-column `} role="alert">
+          <div className={`alert-container alert ${bgColors[alert.type]} mx-5 d-flex text-center position-absolute`} role="alert">
           <span className="block sm:inline">{alert.message}</span>
-          <div className="mt-3">
           <button 
-            className="btn btn-danger w-25 mx-1"
+            className="btn btn-close "
             onClick={() => setAlert({ show: false, type: '', message: '' })}
-          >
-            Cerrar
-          </button>
-          </div>
+          ></button>
         </div>
       );
     };
   
     return (
       
-      <div className="main mb-5">
+      <div className="main ">
         {/* Componente de alerta */}
-        <div>
+
         <Alert />
-        </div>
+
+        
+        <div className="form">
         
         {isLoggedIn ? (
-          <div className="">
+          <div className="container-log text-center py-5">
             <h2 className="">¡Sesión iniciada!</h2>
             <p className="mb-4">Has iniciado sesión como: <strong>{formData.email}</strong></p>
             <div className="mb-2">
@@ -212,13 +210,13 @@ const LoginForm = () => {
             
             <div className="form-box">
             <span>
-            <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="icon-p bi bi-person-circle" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="icon-p bi bi-person-circle mt-1 pt-1" viewBox="0 0 16 16">
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
               <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
             </svg>
             </span>
             <form onSubmit={handleSubmit} noValidate className="form-main form-control">
-              <div className="mb-3">
+              <div className="container-info mb-3">
                 <label className="form-label" htmlFor="email">
                   Email
                 </label>
@@ -236,7 +234,7 @@ const LoginForm = () => {
                 )}
               </div>
               
-              <div className="mb-3">
+              <div className="container-info mb-3">
                 <label className="form-label" htmlFor="password">
                   Contraseña
                 </label>
@@ -254,22 +252,34 @@ const LoginForm = () => {
                 )}
               </div>
               
+              <div className="btns d-flex my-1">
+
               <button
                 type="submit"
-                className="btn-log  mb-1"
+                className="btn-log p-2"
               >
                 Iniciar Sesión
               </button>
+              <button
+                type="button"
+                className="btn-crear p-2"
+              >
+                Crear Cuenta
+              </button>
+              </div>
+
             </form>
             
             <div className="example">
-              <p>Para probar el error: usa error@test.com</p>
+              <p>Para probar el error: error@test.com</p>
             </div>
             </div>
 
                      
           </>
         )}
+        </div>
+
       </div>
     );
   };

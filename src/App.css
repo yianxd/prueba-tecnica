@@ -1,1 +1,14 @@
-.app{}
+
+.App{   
+    overflow: overlay;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0 !important;
+}
+
+@media(max-width: 760px){
+
+    .App{
+        padding: 10px;
+    }
+}
