@@ -2,25 +2,34 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import "./login.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { EyeFill, EyeSlashFill } from "react-bootstrap-icons";
 
 const LoginForm = () => {
 
+
+    //datos
     const [formData, setFormData] = useState({
       email: '',
       password: ''
     });
+    //Login
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    //alertas
     const [alert, setAlert] = useState({
       show: false,
       type: '', 
       message: ''
     });
+    //validaciones
     const [validation, setValidation] = useState({
       email: { valid: true, message: '' },
       password: { valid: true, message: '' }
     });
+    //formulario-enviado
     const [formSubmitted, setFormSubmitted] = useState(false);
+    //ver contraseña
+
+    const [showPassword, setShowPassword] = useState(false);
   
     useEffect(() => {
       const loggedInUser = localStorage.getItem('user');
@@ -215,11 +224,9 @@ const LoginForm = () => {
               <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
             </svg>
             </span>
+            <h2>Iniciar Sesión</h2>
             <form onSubmit={handleSubmit} noValidate className="form-main form-control">
               <div className="container-info mb-3">
-                <label className="form-label" htmlFor="email">
-                  Email
-                </label>
                 <input
                   type="email"
                   id="email"
@@ -234,24 +241,28 @@ const LoginForm = () => {
                 )}
               </div>
               
-              <div className="container-info mb-3">
-                <label className="form-label" htmlFor="password">
-                  Contraseña
-                </label>
+              <div className="container-info mb-3 position-relative">
                 <input
-                  type="password"
+                  type= {showPassword ? "text": "password"}
                   id="password"
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className={`form-control pt-2 my-1 mx-5`}
+                  className={`form-control pt-2 my-1 mx-5 `}
                   placeholder="Contraseña"
                 />
+                <span
+                  className="eye-icon position-absolute"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <EyeSlashFill /> : <EyeFill />}
+                </span>
                 {!validation.password.valid && formSubmitted && (
                   <p className="text-alert">{validation.password.message}</p>
                 )}
+
               </div>
-              
+              <a href="">Recuperar Contraseña</a>
               <div className="btns d-flex my-1">
 
               <button
