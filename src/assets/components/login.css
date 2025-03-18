@@ -1,40 +1,121 @@
 /* Body*/
 
-html body, body.custom-theme {
+html body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #dbdbdb !important;
-  }
+    background: linear-gradient(rgba(218, 72, 72, 0.37), rgba(0, 0, 0, 0.3)), url('../../assets/img/36970.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
 
-.main{
+/*formulario*/
+
+
+
+.form-box{
     text-align: center;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-
+    padding: 60px;
+    width: 660px !important;
+    height: 450px !important;
+    color: rgb(61, 56, 45);
 }
 
 
-.main .form-label{
+.icon-p{
+    color: rgba(187, 86, 61, 0.9);
+    width: 130px;
+    margin-left: 30px;
+}
+
+
+.form-box .form-label{
     font-size: 18px;
-    color: rgb(0, 0, 0) !important;
+    color: rgb(61, 56, 45);
+    margin-left: 30px;
+
 }
 
 
-.main input{
-    background-color: #bfbfc250;
+.form-box input{
     text-align: center;
+    display: flex;
+    border-radius: 50px;
+    width: 450px;
+    height: 50px;
+    border: none !important;
+    color: #000 !important;
+    background-color:rgba(252, 252, 252, 0.301);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
 }
+
+/*focus*/
+
+.form-box input:focus{
+    background-color:rgba(252, 252, 252, 0.479);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+    color: #000 !important;
+}
+
+
+
+.form-box .text-alert{
+
+    font-size: 12px;
+    padding: 2px;
+
+}
+
+/*end focus*/
+.form-main{
+    background: transparent !important;
+    border: none !important;
+ 
+}
+
+/*responsive formulario*/
+
+@media(max-width: 600px){
+
+    .form-box{
+        width: 100% !important;
+        height: 100% !important;
+        
+        
+    }
+
+    .form-label{
+        width: auto;
+    }
+    
+    .form-box input{
+        width: 300px;
+    }
+ 
+}
+
 
 .example{
-    color: rgba(0, 0, 0, 0.651);
+    color: rgba(243, 243, 243, 0.836);
 }
 
 
-.text-alert{
-    color: black;
-    font-size: 15px;
+/*button*/
+
+.btn-log{
+    background-color: rgba(187, 86, 61, 0.9);
+    border-radius: 50px;
+    padding: 10px;
+    height: 55px;
+    width: auto;
+    border: none;
+    color: azure;
+    margin-left: 30px;
 }
 
-
+.alert-con{
+    width: 500px;
+    height: 50px;
+}

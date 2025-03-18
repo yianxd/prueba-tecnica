@@ -69,7 +69,7 @@ const LoginForm = () => {
       if (!password.trim()) {
         return { valid: false, message: 'La contraseña es obligatoria' };
       } else if (password.length < 8) {
-        return { valid: false, message: 'La contraseña debe tener al menos 6 caracteres' };
+        return { valid: false, message: 'La contraseña debe tener al menos 8 caracteres' };
       }
       return { valid: true, message: '' };
     };
@@ -171,7 +171,7 @@ const LoginForm = () => {
       
       return (
 
-          <div className={`alert ${bgColors[alert.type]} d-flex flex-column `} role="alert">
+          <div className={`alert-con alert ${bgColors[alert.type]} d-flex flex-column `} role="alert">
           <span className="block sm:inline">{alert.message}</span>
           <div className="mt-3">
           <button 
@@ -187,7 +187,7 @@ const LoginForm = () => {
   
     return (
       
-      <div className="text-center">
+      <div className="main mb-5">
         {/* Componente de alerta */}
         <div>
         <Alert />
@@ -209,11 +209,17 @@ const LoginForm = () => {
           </div>
         ) : (
           <>
-            <h2 className="">Iniciar Sesión</h2>
             
-            <form onSubmit={handleSubmit} noValidate className="main form-control">
-              <div className="form-label">
-                <label className="" htmlFor="email">
+            <div className="form-box">
+            <span>
+            <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="icon-p bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+            </span>
+            <form onSubmit={handleSubmit} noValidate className="form-main form-control">
+              <div className="mb-3">
+                <label className="form-label" htmlFor="email">
                   Email
                 </label>
                 <input
@@ -222,8 +228,8 @@ const LoginForm = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`input form-control`}
-                  placeholder="ejemplo@correo.com"
+                  className={`input form-control my-1 mx-5`}
+                  placeholder="Correo"
                 />
                 {!validation.email.valid && formSubmitted && (
                   <p className="text-alert">{validation.email.message}</p>
@@ -240,7 +246,7 @@ const LoginForm = () => {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className={`form-control`}
+                  className={`form-control pt-2 my-1 mx-5`}
                   placeholder="Contraseña"
                 />
                 {!validation.password.valid && formSubmitted && (
@@ -250,7 +256,7 @@ const LoginForm = () => {
               
               <button
                 type="submit"
-                className="btn btn-success mb-1"
+                className="btn-log  mb-1"
               >
                 Iniciar Sesión
               </button>
@@ -259,6 +265,9 @@ const LoginForm = () => {
             <div className="example">
               <p>Para probar el error: usa error@test.com</p>
             </div>
+            </div>
+
+                     
           </>
         )}
       </div>
